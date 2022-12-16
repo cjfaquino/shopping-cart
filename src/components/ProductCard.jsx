@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ProductCard = ({ product }) => {
@@ -12,9 +13,9 @@ const ProductCard = ({ product }) => {
 
   return (
     <div key={id} className='item-card'>
-      <div title={title} className='item-title'>
+      <Link to={`/shopping/${id}`} title={title} className='item-title'>
         {title}
-      </div>
+      </Link>
       <div>${price}</div>
       <div className='image-card'>
         <img src={image} title={title} alt={title} />
