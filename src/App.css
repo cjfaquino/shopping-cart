@@ -90,6 +90,37 @@ nav .cart {
 
 .detail-info-card {
   width: 600px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-info-card h2 {
+  margin: 0;
+}
+
+.rating {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.count {
+  color: #646cff;
+}
+
+.detail-price {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.desc-label {
+  font-weight: 600;
+}
+
+.category {
+  color: #646cff;
 }
 
 #quantity {

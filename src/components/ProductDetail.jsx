@@ -42,33 +42,37 @@ const ProductDetail = () => {
             <div>
               <h2>{item.title}</h2>
               <span>
-                {item.rating.rate} {item.rating.count}
+                <span className='rating'>{item.rating.rate} out of 5</span>
+                {' | '}
+                <span className='count'>{item.rating.count} ratings</span>
               </span>
             </div>
-            <div>${item.price}</div>
-            <div>
-              <div>Description</div>
+            <div className='detail-price'>${item.price.toFixed(2)}</div>
+            <div className='detail-desc'>
+              <div className='desc-label'>Description</div>
               <div>{item.description}</div>
             </div>
-            <div>{item.category}</div>
+            <div className='category'>{item.category}</div>
 
-            <label htmlFor='quantity'>
-              Quantity
-              <input
-                id='quantity'
-                type='number'
-                value={quantity}
-                min='1'
-                onChange={handleChange}
-              />
-            </label>
-            <button type='button' onClick={decQ}>
-              -
-            </button>
-            <button type='button' onClick={incQ}>
-              +
-            </button>
-            <button type='button'>Add to cart</button>
+            <div className='detail-bottom-row'>
+              <label htmlFor='quantity'>
+                Quantity
+                <input
+                  id='quantity'
+                  type='number'
+                  value={quantity}
+                  min='1'
+                  onChange={handleChange}
+                />
+              </label>
+              <button type='button' onClick={decQ}>
+                -
+              </button>
+              <button type='button' onClick={incQ}>
+                +
+              </button>
+              <button type='button'>Add to cart</button>
+            </div>
           </div>
         </div>
       )}
