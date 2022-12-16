@@ -16,10 +16,12 @@ const ProductCard = ({ product }) => {
       <Link to={`/shopping/${id}`} title={title} className='item-title'>
         {title}
       </Link>
-      <div>${price}</div>
-      <div className='image-card'>
+      <div>${price.toFixed(2)}</div>
+
+      <Link to={`/shopping/${id}`} title={title} className='image-card'>
         <img src={image} title={title} alt={title} />
-      </div>
+      </Link>
+
       <div>
         {rate} {count}
       </div>
