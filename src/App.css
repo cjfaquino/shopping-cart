@@ -8,3 +8,16 @@
 .App {
   min-height: calc(100vh - var(--footer-size));
 }
+
+nav ul {
+  margin: 0;
+  padding: 20px 50px;
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav .cart {
+  margin-left: auto;
+  margin-right: 0;
+}
