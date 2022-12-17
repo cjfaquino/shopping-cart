@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import RouterSwitch from './RouterSwitch';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 import MyFooter from './components/MyFooter/MyFooter';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterSwitch />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
     <MyFooter />
   </React.StrictMode>
 );

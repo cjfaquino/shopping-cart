@@ -13,12 +13,12 @@ const ProductCard = ({ product }) => {
 
   return (
     <div key={id} className='item-card'>
-      <Link to={`/shopping/${id}`} title={title} className='item-title'>
+      <Link to={`/shop/${id}`} title={title} className='item-title'>
         {title}
       </Link>
       <div>${price.toFixed(2)}</div>
 
-      <Link to={`/shopping/${id}`} title={title} className='image-card'>
+      <Link to={`/shop/${id}`} title={title} className='image-card'>
         <img src={image} title={title} alt={title} />
       </Link>
 

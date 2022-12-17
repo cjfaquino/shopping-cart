@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import MyNav from './MyNav';
 
 const ProductDetail = () => {
   const [item, setItem] = useState({});
@@ -31,7 +30,6 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <MyNav />
       {Object.keys(item).length !== 0 && (
         <div className='product-detail'>
           <div className='detail-image-card'>

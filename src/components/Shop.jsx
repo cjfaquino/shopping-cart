@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import MyNav from './MyNav';
 import ProductCard from './ProductCard';
 
-const Shopping = () => {
+const Shop = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -19,11 +18,10 @@ const Shopping = () => {
 
   return (
     <div>
-      <MyNav />
-      <h1>Shopping</h1>
+      <h1>Shop</h1>
       <div className='products'>{products !== 0 && <AllProducts />}</div>
     </div>
   );
 };
 
-export default Shopping;
+export default Shop;
