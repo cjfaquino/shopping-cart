@@ -22,7 +22,7 @@ const ProductDetail = ({ handleCart }) => {
     error = fetchObj.error;
   }
 
-  const handleChange = (e) => setQuantity(e.target.value);
+  const handleChange = (e) => setQuantity(Number(e.target.value));
 
   const incQ = () => setQuantity((x) => Number(x) + 1);
 
