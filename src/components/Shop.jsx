@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductPreview from './ProductPreview';
+import useFetch from './Utils/useFetch';
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
-    return () => {};
-  }, []);
+  const {
+    data: products,
+    loading,
+    error,
+  } = useFetch('https://fakestoreapi.com/products');
 
   const AllProducts = () =>
     products.map((product) => (
@@ -19,7 +17,7 @@ const Shop = () => {
   return (
     <div>
       <h1>Shop</h1>
-      <div className='products'>{products !== 0 && <AllProducts />}</div>
+      <div className='products'>{products && <AllProducts />}</div>
     </div>
   );
 };

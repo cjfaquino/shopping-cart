@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import useFetch from './Utils/useFetch';
 
 const ProductDetail = () => {
-  const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState(1);
   const params = useParams();
   const location = useLocation();
 
-  const fetchItem = async () => {
-    const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
-    const data = await res.json();
-    setItem(data);
-  };
+  let item;
+  let loading;
+  let error;
 
-  useEffect(() => {
-    // fetch only if linking directly otherwise use passed data
-    if (location.state === null) fetchItem();
-    else setItem(location.state);
-
-    return () => {};
-  }, []);
+  // fetch only if directly linking otherwise use passed data
+  if (location.state !== null) {
+    item = location.state;
+  } else {
+    const fetchObj = useFetch(`https://fakestoreapi.com/products/${params.id}`);
+    item = fetchObj.data;
+    loading = fetchObj.loading;
+    error = fetchObj.error;
+  }
 
   const handleChange = (e) => setQuantity(e.target.value);
 
@@ -33,7 +33,7 @@ const ProductDetail = () => {
 
   return (
     <div>
-      {Object.keys(item).length !== 0 && (
+      {item && (
         <div className='product-detail'>
           <div className='detail-image-card'>
             <img src={item.image} alt={item.title} title={item.title} />
