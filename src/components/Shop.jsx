@@ -9,15 +9,15 @@ const Shop = () => {
     error,
   } = useFetch('https://fakestoreapi.com/products');
 
-  const AllProducts = () =>
-    products.map((product) => (
-      <ProductPreview key={product.id} product={product} />
-    ));
-
   return (
     <div>
       <h1>Shop</h1>
-      <div className='products'>{products && <AllProducts />}</div>
+      <div className='products'>
+        {products &&
+          products.map((product) => (
+            <ProductPreview key={product.id} product={product} />
+          ))}
+      </div>
     </div>
   );
 };
