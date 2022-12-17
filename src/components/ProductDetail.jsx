@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import useFetch from './Utils/useFetch';
 
-const ProductDetail = () => {
+const ProductDetail = ({ handleCart }) => {
   const [quantity, setQuantity] = useState(1);
   const params = useParams();
   const location = useLocation();
@@ -30,6 +31,10 @@ const ProductDetail = () => {
       if (x > 1) return x - 1;
       return x;
     });
+
+  const addToCart = () => {
+    handleCart.addToCart(item, quantity);
+  };
 
   return (
     <div>
@@ -72,13 +77,21 @@ const ProductDetail = () => {
               <button type='button' onClick={incQ}>
                 +
               </button>
-              <button type='button'>Add to cart</button>
+              <button type='button' onClick={addToCart}>
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
       )}
     </div>
   );
+};
+
+ProductDetail.propTypes = {
+  handleCart: PropTypes.shape({
+    addToCart: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default ProductDetail;
