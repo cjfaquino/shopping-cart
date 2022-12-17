@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
   const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const match = useParams();
+  const params = useParams();
+  const location = useLocation();
 
   const fetchItem = async () => {
-    const res = await fetch(`https://fakestoreapi.com/products/${match.id}`);
+    const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
     const data = await res.json();
     setItem(data);
   };
 
   useEffect(() => {
-    fetchItem();
+    // fetch only if linking directly otherwise use passed data
+    if (location.state === null) fetchItem();
+    else setItem(location.state);
 
     return () => {};
   }, []);

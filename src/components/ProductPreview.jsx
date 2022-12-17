@@ -13,12 +13,22 @@ const ProductPreview = ({ product }) => {
 
   return (
     <div key={id} className='item-card'>
-      <Link to={`/shop/${id}`} title={title} className='item-title'>
+      <Link
+        to={`/shop/${id}`}
+        title={title}
+        className='item-title'
+        state={product}
+      >
         {title}
       </Link>
       <div>${price.toFixed(2)}</div>
 
-      <Link to={`/shop/${id}`} title={title} className='image-card'>
+      <Link
+        to={`/shop/${id}`}
+        title={title}
+        className='image-card'
+        state={product}
+      >
         <img src={image} title={title} alt={title} />
       </Link>
 
