@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
+import ProductPreview from './ProductPreview';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +13,7 @@ const Shop = () => {
 
   const AllProducts = () =>
     products.map((product) => (
-      <ProductCard key={product.id} product={product} />
+      <ProductPreview key={product.id} product={product} />
     ));
 
   return (

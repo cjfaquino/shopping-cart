@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ProductCard = ({ product }) => {
+const ProductPreview = ({ product }) => {
   const {
     id,
     title,
@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
-ProductCard.propTypes = {
+ProductPreview.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
@@ -42,7 +42,7 @@ ProductCard.propTypes = {
   }),
 };
 
-ProductCard.defaultProps = {
+ProductPreview.defaultProps = {
   product: {
     id: '1',
     title: 'Nvidia 9080',
@@ -52,4 +52,4 @@ ProductCard.defaultProps = {
   },
 };
 
-export default ProductCard;
+export default ProductPreview;
