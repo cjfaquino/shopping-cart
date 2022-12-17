@@ -19,7 +19,17 @@ const App = () => {
   };
 
   const addToCart = (item, quantity) => {
-    setCart([...cart, { item, quantity }]);
+    let temp = cart.slice();
+
+    // check for existing
+    const index = temp.findIndex((obj) => obj.item.id === item.id);
+
+    // update if exisiting otherwise add to array
+    if (index > -1) {
+      temp[index] = { item, quantity: temp[index].quantity + quantity };
+    } else temp = [...temp, { item, quantity }];
+
+    setCart(temp);
   };
 
   return (
