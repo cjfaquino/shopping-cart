@@ -12,20 +12,41 @@ const ProductDetail = ({ handleCart }) => {
 
   let allItems;
   let item;
-  let loading;
-  let error;
+  let currentLoading;
+  let currentError;
+  let allLoading;
+  let allError;
+
+  const fetchAllProducts = () => {
+    const fetchAll = useFetch(`https://fakestoreapi.com/products/`);
+    allItems = fetchAll.data;
+    allLoading = fetchAll.loading;
+    allError = fetchAll.error;
+  };
+
+  const fetchProduct = () => {
+    const fetchObj = useFetch(`https://fakestoreapi.com/products/${params.id}`);
+    item = fetchObj.data;
+    currentLoading = fetchObj.loading;
+    currentError = fetchObj.error;
+  };
 
   // fetch only if directly linking otherwise use passed data
   if (location.state !== null) {
-    item = location.state.product;
-    allItems = location.state.allProducts;
+    const { product, allProducts } = location.state;
+    if (product !== undefined) {
+      item = product;
+    } else {
+      fetchProduct();
+    }
+    if (allProducts !== undefined) {
+      allItems = allProducts;
+    } else {
+      fetchAllProducts();
+    }
   } else {
-    const fetchObj = useFetch(`https://fakestoreapi.com/products/${params.id}`);
-    const fetchAll = useFetch(`https://fakestoreapi.com/products/`);
-    item = fetchObj.data;
-    loading = fetchObj.loading;
-    error = fetchObj.error;
-    allItems = fetchAll.data;
+    fetchProduct();
+    fetchAllProducts();
   }
 
   useEffect(() => {

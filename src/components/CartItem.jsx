@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const CartItem = ({ product, handleCart }) => {
@@ -33,11 +34,23 @@ const CartItem = ({ product, handleCart }) => {
 
   return (
     <div className='cart-item'>
-      <div className='cart-item-img-container'>
+      <Link
+        to={`/shop/${id}`}
+        title={title}
+        className='cart-item-img-container'
+        state={{ product: item }}
+      >
         <img className='cart-item-img' src={image} alt={title} />
-      </div>
+      </Link>
       <div className='cart-item-info'>
-        <div className='cart-item-title'>{title}</div>
+        <Link
+          to={`/shop/${id}`}
+          title={title}
+          className='cart-item-title'
+          state={{ product: item }}
+        >
+          {title}
+        </Link>
         <div className='cart-item-quantity'>Qty: {qty}</div>
         <div>
           <button type='button' className='btn-dec' onClick={decQ}>

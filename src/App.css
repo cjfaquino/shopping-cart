@@ -112,7 +112,7 @@ nav ul {
 }
 
 .details {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .detail-image-card {
@@ -125,6 +125,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 50px;
+  margin-bottom: 50px;
 }
 
 .detail-info-card {
@@ -168,7 +169,7 @@ nav ul {
 }
 
 .related-section {
-  margin: 100px 0;
+  margin-bottom: 50px;
 }
 
 .related-label {
