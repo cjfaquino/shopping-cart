@@ -108,13 +108,19 @@ const ProductDetail = ({ handleCart }) => {
                   onChange={handleChange}
                 />
               </label>
-              <button type='button' onClick={decQ}>
-                -
-              </button>
-              <button type='button' onClick={incQ}>
-                +
-              </button>
-              <button type='button' onClick={addToCart}>
+              <span className='detail-btns'>
+                <button className='btn-inc-detail' type='button' onClick={decQ}>
+                  -
+                </button>
+                <button className='btn-dec-detail' type='button' onClick={incQ}>
+                  +
+                </button>
+              </span>
+              <button
+                className='btn-add-cart'
+                type='button'
+                onClick={addToCart}
+              >
                 Add to cart
               </button>
             </div>

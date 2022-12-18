@@ -165,6 +165,7 @@ nav ul {
 }
 
 #quantity {
+  margin-left: 10px;
   cursor: text;
   text-align: center;
 }
@@ -239,4 +240,53 @@ nav ul {
 .btn-delete:hover {
   background-color: rgb(175, 0, 0);
   border: none;
+}
+
+@media (max-width: 1600px) {
+  .wrapper {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-detail {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-info-card {
+    max-width: 500px;
+  }
+
+  #quantity,
+  .btn-add-cart {
+    margin: 0;
+    width: 100%;
+  }
+
+  .detail-btns {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+  }
+
+  .btn-inc-detail,
+  .btn-dec-detail {
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .details {
+    margin: 0;
+  }
+
+  .detail-info-card,
+  .detail-image-card {
+    width: 100%;
+    min-height: fit-content;
+  }
 }
