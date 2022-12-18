@@ -35,6 +35,15 @@ const ProductDetail = ({ handleCart }) => {
     }
   }, [allItems, item]);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    return () => {};
+  }, [item]);
+
   const handleChange = (e) => setQuantity(Number(e.target.value));
 
   const incQ = () => setQuantity((x) => Number(x) + 1);

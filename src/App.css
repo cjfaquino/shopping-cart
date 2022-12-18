@@ -50,6 +50,10 @@ nav ul {
 .item-title {
   color: white;
   font-weight: 600;
+}
+
+.item-title,
+.related-item-title {
   margin-top: 0;
   margin-bottom: auto;
   overflow: hidden;
@@ -80,7 +84,8 @@ nav ul {
 
 .image-card,
 .detail-image-card,
-.cart-item-img-container {
+.cart-item-img-container,
+.related-img-container {
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
@@ -96,7 +101,8 @@ nav ul {
 
 .item-card img,
 .detail-image-card img,
-.cart-item-img-container img {
+.cart-item-img-container img,
+.related-img-container img {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
@@ -168,6 +174,27 @@ nav ul {
 .related-label {
   font-weight: 600;
   font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.related-items {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  overflow: scroll;
+}
+
+.related-item-card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.related-img-container {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
 }
 
 .cart {
