@@ -5,7 +5,7 @@
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: var(--app-height);
   justify-content: space-between;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .app {
-  min-height: calc(100vh - var(--footer-size));
+  min-height: calc(var(--app-height) - var(--footer-size));
 }
 
 nav ul {
