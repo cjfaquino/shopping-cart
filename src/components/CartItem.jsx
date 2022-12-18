@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const CartItem = ({ product, handleCart }) => {
   const { item, quantity } = product;
   const { id, title, price, image } = item;
 
+  const [qty, setQty] = useState(quantity);
+
   const handleDelete = () => {
     handleCart.deleteFromCart(id);
   };
+
+  const incQ = () => {
+    setQty((x) => x + 1);
+  };
+
+  const decQ = () => {
+    setQty((x) => {
+      if (x > 0) return x - 1;
+      return x;
+    });
+  };
+
+  const totalP = () => {
+    const total = qty * price;
+    return total.toFixed(2);
+  };
+
+  useEffect(() => {
+    handleCart.updateFromCart(item, qty);
+  }, [qty]);
 
   return (
     <div className='cart-item'>
@@ -16,14 +38,20 @@ const CartItem = ({ product, handleCart }) => {
       </div>
       <div className='cart-item-info'>
         <div className='cart-item-title'>{title}</div>
-        <div className='cart-item-quantity'>Qty: {quantity}</div>
+        <div className='cart-item-quantity'>Qty: {qty}</div>
         <div>
-          <button type='button' onClick={handleDelete}>
+          <button type='button' className='btn-dec' onClick={decQ}>
+            -
+          </button>
+          <button type='button' className='btn-inc' onClick={incQ}>
+            +
+          </button>
+          <button type='button' className='btn-delete' onClick={handleDelete}>
             Delete
           </button>
         </div>
       </div>
-      <div className='cart-item-price'>${price.toFixed(2)}</div>
+      <div className='cart-item-price'>${totalP()}</div>
     </div>
   );
 };
@@ -45,6 +73,7 @@ CartItem.propTypes = {
   }).isRequired,
   handleCart: PropTypes.shape({
     deleteFromCart: PropTypes.func.isRequired,
+    updateFromCart: PropTypes.func.isRequired,
   }).isRequired,
 };
 

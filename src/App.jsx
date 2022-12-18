@@ -48,6 +48,19 @@ const App = () => {
     setCart(filtered);
   };
 
+  const updateFromCart = (item, newQ) => {
+    const temp = cart.slice();
+
+    // find item by id
+    const index = temp.findIndex((obj) => obj.item.id === item.id);
+
+    if (index > -1) {
+      temp[index] = { item, quantity: newQ };
+    }
+
+    setCart(temp);
+  };
+
   return (
     <div className='app'>
       <Routes>
@@ -62,7 +75,7 @@ const App = () => {
             path='cart'
             element={
               <Cart
-                handleCart={{ deleteFromCart }}
+                handleCart={{ deleteFromCart, updateFromCart }}
                 cart={cart}
                 totalQ={getQuantity()}
               />
