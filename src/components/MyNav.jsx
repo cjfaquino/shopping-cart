@@ -12,7 +12,7 @@ const MyNav = ({ quantity }) => (
         <li>
           <Link to='/shop'>Shopping</Link>
         </li>
-        <li className='cart'>
+        <li className='nav-cart'>
           <Link to='/shop/cart'>Cart</Link>{' '}
           <span className='number'>{quantity}</span>
         </li>

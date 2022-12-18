@@ -55,7 +55,13 @@ const App = () => {
           />
           <Route
             path='cart'
-            element={<Cart handleCart={{ addToCart }} cart={cart} />}
+            element={
+              <Cart
+                handleCart={{ addToCart }}
+                cart={cart}
+                totalQ={getQuantity()}
+              />
+            }
           />
         </Route>
       </Routes>
