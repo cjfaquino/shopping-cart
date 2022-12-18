@@ -1,26 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useFetch from './Utils/useFetch';
+import RelatedItems from './RelatedItems';
 
 const ProductDetail = ({ handleCart }) => {
   const [quantity, setQuantity] = useState(1);
+  const [related, setRelated] = useState();
   const params = useParams();
   const location = useLocation();
 
+  let allItems;
   let item;
   let loading;
   let error;
 
   // fetch only if directly linking otherwise use passed data
   if (location.state !== null) {
-    item = location.state;
+    item = location.state.product;
+    allItems = location.state.allProducts;
   } else {
     const fetchObj = useFetch(`https://fakestoreapi.com/products/${params.id}`);
+    const fetchAll = useFetch(`https://fakestoreapi.com/products/`);
     item = fetchObj.data;
     loading = fetchObj.loading;
     error = fetchObj.error;
+    allItems = fetchAll.data;
   }
+
+  useEffect(() => {
+    if (allItems !== undefined && item !== undefined) {
+      const filtered = allItems.filter((obj) => obj.category === item.category);
+      setRelated(filtered);
+    }
+  }, [allItems, item]);
 
   const handleChange = (e) => setQuantity(Number(e.target.value));
 
@@ -84,6 +97,8 @@ const ProductDetail = ({ handleCart }) => {
           </div>
         </div>
       )}
+
+      {related && <RelatedItems related={related} />}
     </div>
   );
 };

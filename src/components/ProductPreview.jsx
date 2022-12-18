@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ProductPreview = ({ product }) => {
+const ProductPreview = ({ product, allProducts }) => {
   const {
     id,
     title,
@@ -17,7 +17,7 @@ const ProductPreview = ({ product }) => {
         to={`/shop/${id}`}
         title={title}
         className='item-title'
-        state={product}
+        state={{ product, allProducts }}
       >
         {title}
       </Link>
@@ -26,7 +26,7 @@ const ProductPreview = ({ product }) => {
         to={`/shop/${id}`}
         title={title}
         className='image-card'
-        state={product}
+        state={{ product, allProducts }}
       >
         <img src={image} title={title} alt={title} />
       </Link>

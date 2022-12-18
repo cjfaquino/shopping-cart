@@ -161,6 +161,15 @@ nav ul {
   text-align: center;
 }
 
+.related-section {
+  margin: 100px 0;
+}
+
+.related-label {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .cart {
   display: grid;
   grid-template-rows: 100px;

@@ -15,7 +15,11 @@ const Shop = () => {
       <div className='products'>
         {products &&
           products.map((product) => (
-            <ProductPreview key={product.id} product={product} />
+            <ProductPreview
+              key={product.id}
+              product={product}
+              allProducts={products}
+            />
           ))}
       </div>
     </div>
