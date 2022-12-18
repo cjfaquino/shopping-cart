@@ -10,7 +10,7 @@ const Shop = () => {
   } = useFetch('https://fakestoreapi.com/products');
 
   return (
-    <div>
+    <div className='shop wrapper'>
       <h1>Shop</h1>
       <div className='products'>
         {products &&

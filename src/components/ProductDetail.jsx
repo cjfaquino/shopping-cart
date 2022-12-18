@@ -37,7 +37,7 @@ const ProductDetail = ({ handleCart }) => {
   };
 
   return (
-    <div>
+    <div className='details wrapper'>
       {item && (
         <div className='product-detail'>
           <div className='detail-image-card'>

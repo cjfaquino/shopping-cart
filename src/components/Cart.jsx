@@ -12,7 +12,7 @@ const Cart = ({ cart, totalQ, handleCart }) => {
   };
 
   return (
-    <div className='cart'>
+    <div className='cart wrapper'>
       <h1>Cart</h1>
       <div className='cart-items'>
         {cart.map((product) => (

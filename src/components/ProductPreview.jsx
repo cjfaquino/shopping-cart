@@ -21,7 +21,6 @@ const ProductPreview = ({ product }) => {
       >
         {title}
       </Link>
-      <div>${price.toFixed(2)}</div>
 
       <Link
         to={`/shop/${id}`}
@@ -32,8 +31,10 @@ const ProductPreview = ({ product }) => {
         <img src={image} title={title} alt={title} />
       </Link>
 
-      <div>
-        {rate} {count}
+      <div className='preview-info'>
+        <span className='preview-price'>${price.toFixed(2)}</span>
+        <span className='preview-rate'>{rate}</span> (
+        <span className='preview-count'>{count}</span>)
       </div>
     </div>
   );
