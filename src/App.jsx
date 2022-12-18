@@ -43,6 +43,11 @@ const App = () => {
     setCart(temp);
   };
 
+  const deleteFromCart = (id) => {
+    const filtered = cart.filter((obj) => id !== obj.item.id);
+    setCart(filtered);
+  };
+
   return (
     <div className='app'>
       <Routes>
@@ -57,7 +62,7 @@ const App = () => {
             path='cart'
             element={
               <Cart
-                handleCart={{ addToCart }}
+                handleCart={{ deleteFromCart }}
                 cart={cart}
                 totalQ={getQuantity()}
               />

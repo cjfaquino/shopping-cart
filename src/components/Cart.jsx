@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Cart = ({ cart, totalQ }) => {
+const Cart = ({ cart, totalQ, handleCart }) => {
   const totalP = () => {
     let sum = 0;
     cart.forEach((obj) => {
       sum += obj.item.price * obj.quantity;
     });
     return sum;
+  };
+
+  const handleDelete = (id) => () => {
+    handleCart.deleteFromCart(id);
   };
 
   return (
@@ -25,6 +29,11 @@ const Cart = ({ cart, totalQ }) => {
               <div className='cart-item-info'>
                 <div className='cart-item-title'>{title}</div>
                 <div className='cart-item-quantity'>Qty: {quantity}</div>
+                <div>
+                  <button type='button' onClick={handleDelete(id)}>
+                    Delete
+                  </button>
+                </div>
               </div>
               <div className='cart-item-price'>${price.toFixed(2)}</div>
             </div>
@@ -57,6 +66,9 @@ Cart.propTypes = {
     })
   ),
   totalQ: PropTypes.number.isRequired,
+  handleCart: PropTypes.shape({
+    deleteFromCart: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 Cart.defaultProps = {
