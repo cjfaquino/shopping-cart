@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CartItem from './CartItem';
 
 const Cart = ({ cart, totalQ, handleCart }) => {
   const totalP = () => {
@@ -10,35 +11,17 @@ const Cart = ({ cart, totalQ, handleCart }) => {
     return sum;
   };
 
-  const handleDelete = (id) => () => {
-    handleCart.deleteFromCart(id);
-  };
-
   return (
     <div className='cart'>
       <h1>Cart</h1>
       <div className='cart-items'>
-        {cart.map((product) => {
-          const { item, quantity } = product;
-          const { id, title, price, image } = item;
-          return (
-            <div key={id} className='cart-item'>
-              <div className='cart-item-img-container'>
-                <img className='cart-item-img' src={image} alt={title} />
-              </div>
-              <div className='cart-item-info'>
-                <div className='cart-item-title'>{title}</div>
-                <div className='cart-item-quantity'>Qty: {quantity}</div>
-                <div>
-                  <button type='button' onClick={handleDelete(id)}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div className='cart-item-price'>${price.toFixed(2)}</div>
-            </div>
-          );
-        })}
+        {cart.map((product) => (
+          <CartItem
+            key={product.item.id}
+            product={product}
+            handleCart={handleCart}
+          />
+        ))}
       </div>
       <div className='cart-subtotal'>
         Subtotal (<span className='subtotal-quantity'>{totalQ} Items</span>):{' '}
