@@ -50,17 +50,23 @@ ProductPreview.propTypes = {
     }),
     price: PropTypes.number,
     image: PropTypes.string,
-  }),
+  }).isRequired,
+  allProducts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      rating: PropTypes.shape({
+        rate: PropTypes.number,
+        count: PropTypes.number,
+      }),
+      price: PropTypes.number,
+      image: PropTypes.string,
+    })
+  ),
 };
 
 ProductPreview.defaultProps = {
-  product: {
-    id: '1',
-    title: 'Nvidia 9080',
-    rating: { rate: 0.1, count: 1000 },
-    price: 10000,
-    image: 'https://an-image-url.com',
-  },
+  allProducts: undefined,
 };
 
 export default ProductPreview;
