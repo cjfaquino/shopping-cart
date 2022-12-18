@@ -11,10 +11,11 @@
 
 .wrapper {
   width: 1500px;
+  min-height: 80vh;
   margin: 0 auto;
 }
 
-.App {
+.app {
   min-height: calc(100vh - var(--footer-size));
 }
 

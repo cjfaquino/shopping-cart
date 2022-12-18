@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useFetch from './Utils/useFetch';
 import RelatedItems from './RelatedItems';
+import Loading from './Loading/Loading';
 
 const ProductDetail = ({ handleCart }) => {
   const [quantity, setQuantity] = useState(1);
@@ -12,23 +13,15 @@ const ProductDetail = ({ handleCart }) => {
 
   let allItems;
   let item;
-  let currentLoading;
-  let currentError;
-  let allLoading;
-  let allError;
 
   const fetchAllProducts = () => {
     const fetchAll = useFetch(`https://fakestoreapi.com/products/`);
     allItems = fetchAll.data;
-    allLoading = fetchAll.loading;
-    allError = fetchAll.error;
   };
 
   const fetchProduct = () => {
     const fetchObj = useFetch(`https://fakestoreapi.com/products/${params.id}`);
     item = fetchObj.data;
-    currentLoading = fetchObj.loading;
-    currentError = fetchObj.error;
   };
 
   // fetch only if directly linking otherwise use passed data
@@ -81,6 +74,7 @@ const ProductDetail = ({ handleCart }) => {
 
   return (
     <div className='details wrapper'>
+      {!item && <Loading />}
       {item && (
         <div className='product-detail'>
           <div className='detail-image-card'>
@@ -128,6 +122,7 @@ const ProductDetail = ({ handleCart }) => {
         </div>
       )}
 
+      {!related && item && <Loading />}
       {related && <RelatedItems related={related} />}
     </div>
   );
