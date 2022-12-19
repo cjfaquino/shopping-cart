@@ -51,11 +51,13 @@ const CartItem = ({ product, handleCart }) => {
         >
           {title}
         </Link>
-        <div className='cart-item-quantity'>Qty: {qty}</div>
+        <div className='cart-item-price'>${price.toFixed(2)}</div>
         <div>
           <button type='button' className='btn-dec' onClick={decQ}>
             -
           </button>
+          <span className='cart-item-quantity'>{qty}</span>
+
           <button type='button' className='btn-inc' onClick={incQ}>
             +
           </button>
@@ -64,7 +66,7 @@ const CartItem = ({ product, handleCart }) => {
           </button>
         </div>
       </div>
-      <div className='cart-item-price'>${totalP()}</div>
+      <div className='cart-item-total-price'>${totalP()}</div>
     </div>
   );
 };
