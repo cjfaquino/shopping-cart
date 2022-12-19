@@ -26,7 +26,7 @@ nav {
 nav ul {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 20px 50px;
+  padding: 20px 0;
   display: flex;
   gap: 20px;
   list-style: none;
@@ -170,7 +170,7 @@ nav ul {
 }
 
 #quantity {
-  margin-left: 10px;
+  width: 100px;
   cursor: text;
   text-align: center;
 }
@@ -253,8 +253,10 @@ nav ul {
 }
 
 @media (max-width: 1600px) {
-  .wrapper {
-    width: 100%;
+  .wrapper,
+  nav ul {
+    max-width: none;
+    width: 100% !important;
     padding: 20px;
   }
 }
@@ -279,13 +281,11 @@ nav ul {
     display: flex;
     gap: 15px;
     margin: 10px 0;
+    margin-bottom: 15px;
   }
 
-  .btn-inc-detail,
-  .btn-dec-detail {
-    font-size: 1.5rem;
-    font-weight: 600;
-    width: 50%;
+  .detail-btns button {
+    height: 43px;
   }
 
   .cart-item {

@@ -98,8 +98,10 @@ const ProductDetail = ({ handleCart }) => {
             <div className='category'>{item.category}</div>
 
             <div className='detail-bottom-row'>
-              <label htmlFor='quantity'>
-                Quantity
+              <span className='detail-btns'>
+                <button className='btn-inc-detail' type='button' onClick={decQ}>
+                  -
+                </button>
                 <input
                   id='quantity'
                   type='number'
@@ -107,11 +109,6 @@ const ProductDetail = ({ handleCart }) => {
                   min='1'
                   onChange={handleChange}
                 />
-              </label>
-              <span className='detail-btns'>
-                <button className='btn-inc-detail' type='button' onClick={decQ}>
-                  -
-                </button>
                 <button className='btn-dec-detail' type='button' onClick={incQ}>
                   +
                 </button>
