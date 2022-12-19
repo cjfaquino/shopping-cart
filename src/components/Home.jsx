@@ -17,7 +17,7 @@ const Home = () => (
             </button>
           </Link>
         </div>
-        <div>
+        <div className='home-image-container'>
           <img src={saleIMG} alt='sale' className='home-image' />
         </div>
       </div>
