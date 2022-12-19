@@ -8,6 +8,10 @@ const CartItem = ({ product, handleCart }) => {
 
   const [qty, setQty] = useState(quantity);
 
+  const handleChange = (e) => {
+    setQty(Number(e.target.value));
+  };
+
   const handleDelete = () => {
     handleCart.deleteFromCart(id);
   };
@@ -56,7 +60,16 @@ const CartItem = ({ product, handleCart }) => {
           <button type='button' className='btn-dec' onClick={decQ}>
             -
           </button>
-          <span className='cart-item-quantity'>{qty}</span>
+
+          <label>
+            <input
+              className='cart-item-quantity'
+              type='number'
+              name='cart-qty'
+              value={qty}
+              onChange={handleChange}
+            />
+          </label>
 
           <button type='button' className='btn-inc' onClick={incQ}>
             +
