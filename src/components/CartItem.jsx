@@ -61,15 +61,13 @@ const CartItem = ({ product, handleCart }) => {
             -
           </button>
 
-          <label>
-            <input
-              className='cart-item-quantity'
-              type='number'
-              name='cart-qty'
-              value={qty}
-              onChange={handleChange}
-            />
-          </label>
+          <input
+            className='cart-item-quantity'
+            type='number'
+            name='cart-qty'
+            value={qty}
+            onChange={handleChange}
+          />
 
           <button type='button' className='btn-inc' onClick={incQ}>
             +
