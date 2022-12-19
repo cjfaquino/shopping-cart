@@ -29,7 +29,7 @@
 
 .box {
   width: 100vw;
-  background-color: #646cff;
+  background-color: var(--theme-color);
 }
 
 .home-info {
@@ -147,7 +147,7 @@ nav ul {
 }
 
 .preview-count {
-  color: #646cff;
+  color: var(--theme-color);
 }
 
 .image-card,
@@ -215,7 +215,7 @@ nav ul {
 }
 
 .count {
-  color: #646cff;
+  color: var(--theme-color);
 }
 
 .detail-price {
@@ -228,7 +228,7 @@ nav ul {
 }
 
 .category {
-  color: #646cff;
+  color: var(--theme-color);
 }
 
 #quantity {
@@ -447,5 +447,15 @@ nav ul {
 
   .shop {
     font-size: 0.8rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .item-title {
+    color: black;
+  }
+
+  nav {
+    background-color: #eeeeee;
   }
 }

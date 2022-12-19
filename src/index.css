@@ -11,6 +11,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --theme-color: rgb(100, 108, 255);
 }
 
 * {
@@ -19,7 +21,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--theme-color);
   text-decoration: inherit;
 }
 a:hover {
@@ -29,6 +31,7 @@ a:hover {
 html,
 body {
   margin: 0;
+  background-color: #242424;
 }
 
 h1 {
@@ -50,7 +53,7 @@ input {
 }
 button:hover,
 input:hover {
-  border-color: #646cff;
+  border-color: var(--theme-color);
 }
 button:focus,
 button:focus-visible {
@@ -73,12 +76,18 @@ input[type='number'] {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #eeeeee;
+  }
+
+  html,
+  body {
+    background-color: #eeeeee;
   }
   a:hover {
-    color: #747bff;
+    color: var(--theme-color);
   }
-  button {
+  button,
+  input {
     background-color: #f9f9f9;
   }
 }
